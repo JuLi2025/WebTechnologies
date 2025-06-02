@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Кошик покупок</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <div class="left-block">
+      <div class="name-product">
+        <input type="text" placeholder="Назва товару" />
+        <button class="product-button" data-tooltip="Додати товар">Додати</button>
+      </div>
+
+      <div class="product-item">
+        <span class="product-name">Помідори</span>
+        <div class="quantity-wrapper">
+          <span class="quantity">2</span>
+        </div>
+        <div class="cont">
+          <button class="btn1 not-bought" data-tooltip="Позначити як не куплено">Не куплено</button>
+        </div>
+      </div>
+
+      <div class="product-item">
+        <span class="product-text">Печиво</span>
+        <div class="quantity-wrapper">
+          <button class="red-button" data-tooltip="Зменшити кількість">-</button>
+          <div class="quantity-wrapper"><span class="quantity">2</span></div>
+          <button class="green-button" data-tooltip="Збільшити кількість">+</button>
+        </div>
+        <div class="cont">
+          <button class="btn1 bought" data-tooltip="Позначити як куплено">Куплено</button>
+          <button class="btn-delate" data-tooltip="Видалити товар">×</button>
+        </div>
+      </div>
+
+      <div class="product-item">
+        <input type="text" class="product-input" value="Сир" />
+        <div class="quantity-wrapper">
+          <button class="red-button" data-tooltip="Зменшити кількість">-</button>
+          <div class="quantity-wrapper"><span class="quantity">2</span></div>
+          <button class="green-button" data-tooltip="Збільшити кількість">+</button>
+        </div>
+        <div class="cont">
+          <button class="btn1 bought" data-tooltip="Позначити як куплено">Куплено</button>
+          <button class="btn-delate" data-tooltip="Видалити товар">×</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="right-block">
+      <div class="remaining">
+        <h3>Залишилося</h3>
+        <div class="tag">Печиво <span class="count">2</span></div>
+        <div class="tag">Сир <span class="count">1</span></div>
+      </div>
+      <div class="bought-items">
+        <div class="section-line"></div>
+        <h3>Куплено</h3>
+        <div class="tag crossed">Помідори <span class="count">2</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="badge">
+    <span class="badge-main">BuyList</span>
+    <span class="badge-hover-text">Робота Лівакіна Юлія</span>
+  </div>
+</body>
+</html>
