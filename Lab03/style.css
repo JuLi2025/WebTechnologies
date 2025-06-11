@@ -1,0 +1,351 @@
+body{
+    background-color: lightgray;
+}
+
+.container {
+    display: flex;
+    gap: 30px;
+    padding: 20px;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.left-block,
+.right-block{
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.left-block{
+    width: 60%;
+}
+
+.right-block{
+    width: 30%;
+}
+
+.name-product {
+    display: flex;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 20px;
+}
+
+.name-product input {
+    flex: 1;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 6px 0 0 6px;
+    border: 1px solid lightgray;
+    border-right: none;
+}
+
+.product-button {
+    padding: 10px 30px;
+    background-color: rgb(1, 120, 255);
+    color: white;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 0 6px 6px 0;
+}
+
+.product-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    border-bottom: 1px solid #ccc;
+    padding: 10px 0;
+}
+
+.product-item:last-child {
+    border-bottom: none;
+}
+
+.product-name,
+.product-text {
+    font-size: 18px;
+    width: 200px;
+}
+
+/* .product-input {
+    font-size: 16px;
+    width: 185px;
+    padding: 6px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+} */
+
+.product-input {
+    font-size: 16px;
+    width: 100%;
+    min-width: 100px; 
+    max-width: 200px;
+    padding: 6px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box; 
+}
+.quantity-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    justify-content: center;
+}
+
+.quantity { 
+    font-size: 16px;
+    background-color: lightgray;
+    padding: 6px 12px ;
+    border-radius: 6px;
+}
+  
+.cont {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-width: 150px;
+    justify-content: flex-end;
+}
+
+.btn1 {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.btn1.not-bought,
+.btn1.bought {
+    color: #333;
+    background-color: #e0e0e0;
+}
+
+.btn-delate {
+    background-color: red;
+    color: white;
+    border: none;
+    font-size: 20px;
+    padding: 4px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.red-button,
+.green-button {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    color: white;
+    border: none;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.red-button {
+    background-color: red;
+}
+.green-button {
+    background-color: green;
+}
+
+.remaining {
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 20px;
+}
+
+h3 {
+    margin-top: 0px;
+    font-size: 20px;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+
+h2 {
+    margin-top: 20px;
+    font-size: 20px;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+
+.tag {
+    display: inline-block;
+    background: #e1e0e0;
+    border-radius: 5px;
+    padding: 8px 15px;
+    font-weight: bold;
+    font-size: 16px;
+    margin: 3px;
+}
+
+.tag.crossed {
+    text-decoration: line-through;
+    color: #999;
+}
+
+.count {
+    background: orange;
+    color: white;
+    border-radius: 50%;
+    padding: 2px 8px;
+    margin-left: 5px;
+    font-size: 16px;
+}
+
+.badge {
+    font-size: 18px;
+    position: fixed;
+    left: 20px;
+    bottom: 0px;
+    background-color: indigo;
+    color: white;
+    padding: 10px 20px;
+    border-top-right-radius: 12px;
+    border-top-left-radius: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 1000;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.badge-hover-text {
+    max-height: 0;
+    overflow: hidden;
+    font-size: 12px;
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.badge:hover {
+    bottom: 20px;
+    background-color: rgb(198, 143, 252);;
+}
+
+.badge:hover .badge-hover-text {
+    max-height: 50px;
+    opacity: 1;
+    margin-top: 5px;
+}
+
+button[data-tooltip]{
+    position: relative;
+}
+
+button[data-tooltip]::after{
+    content: attr(data-tooltip);
+    position: absolute;
+    background-color: indigo;
+    color: white;
+    padding: 6px 10px;
+    border-radius: 8px;
+    font-size: 12px;
+    white-space: nowrap;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%) scale(0.7);
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s ease;
+    z-index: 10;
+}
+
+button[data-tooltip]:hover::after {
+    top: -40%;
+    opacity: 1;
+    transform: translateX(-50%) scale(1);
+}
+
+@media (max-width: 500px) {
+    .container {
+      flex-direction: column;
+      gap: 15px;
+      padding: 10px;
+    }
+  
+    .left-block,
+    .right-block {
+      width: 100%;
+      padding: 15px;
+    }
+  
+    .product-item {
+      gap: 5px;
+      padding: 8px 0;
+    }
+  
+    .product-name,
+    .product-text,
+    .product-input {
+      font-size: 16px;
+      min-width: 100px; 
+    }
+  
+    .cont {
+      min-width: 120px;
+    }
+  
+    .btn1 {
+      padding: 6px 10px;
+      font-size: 14px;
+    }
+  
+    .btn-delate {
+      padding: 2px 8px;
+      font-size: 18px;
+    }
+  
+    .red-button,
+    .green-button {
+      width: 22px;
+      height: 22px;
+      font-size: 14px;
+    }
+  
+    .name-product input {
+      padding: 8px;
+      font-size: 14px;
+    }
+  
+    .product-button {
+      padding: 8px 20px;
+      font-size: 14px;
+    }
+}
+  
+@media print {
+    .badge {
+      background-color: white !important;
+      color: black;
+      border: 2px solid indigo;
+    }
+  
+    .badge-main {
+      color: transparent !important;
+      position: relative;
+    }
+  
+    .badge-main::after {
+      content: "Лівакіна Юлія";
+      font-size: 12px;
+      color: black;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+  
+    .badge-hover-text {
+      display: none !important;
+    }
+}
