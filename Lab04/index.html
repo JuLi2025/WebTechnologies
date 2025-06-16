@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>To-Do List</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="wrapper">
+    <div class="container">
+      <h1>To-Do List</h1>
+      <div class="input-section">
+        <input type="text" placeholder="Add a new task" class="input-task">
+        <button class="add-btn">Add</button>
+      </div>
+
+      <div class="filter-section">
+        <div class="sort">
+          <span>Sort by:</span>
+          <select>
+            <option>Date</option>
+            <option>Name</option>
+            <option>Priority</option>
+          </select>
+        </div>
+        <div class="sort">
+          <span>Filter</span>
+          <select>
+            <option>All</option>
+            <option>Completed</option>
+            <option>Active</option>
+          </select>
+        </div>
+      </div>
+
+      <ul class="task-list">
+        <li class="task">
+          <label class="checkbox-item">
+            <input type="checkbox" />
+            <span class="checkbox-circle"></span>
+          </label>
+          <div class="task-content">
+            <span class="task-name">Complete the project</span>
+            <span class="priority medium">Medium</span>
+          </div>
+          <div class="task-meta">
+            <span class="date">May 1, 2024</span>
+            <span class="task-actions"></span> <!-- Пустий елемент для вирівнювання -->
+          </div>
+        </li>
+      
+        <li class="task">
+          <label class="checkbox-item">
+            <input type="checkbox" checked />
+            <span class="checkbox-circle"></span>
+          </label>
+          <div class="task-content">
+            <span class="task-name">Read the book</span>
+            <span class="priority low">Low</span>
+          </div>
+          <div class="task-meta">
+            <span class="date">April 25, 2024</span>
+            <span class="task-actions visible">
+              <i class="fa-solid fa-pen-to-square"></i>
+            </span>
+          </div>
+        </li>
+      
+        <li class="task">
+          <label class="checkbox-item">
+            <input type="checkbox" />
+            <span class="checkbox-circle"></span>
+          </label>
+          <div class="task-content">
+            <span class="task-name">Go to the gym</span>
+            <span class="priority high">High</span>
+          </div>
+          <div class="task-meta">
+            <span class="date">April 23, 2024</span>
+            <span class="task-actions visible">
+              <i class="fa-solid fa-trash"></i>
+            </span> 
+          </div>
+        </li>
+      
+        <li class="task">
+          <label class="checkbox-item">
+            <input type="checkbox" />
+            <span class="checkbox-circle"></span>
+          </label>
+          <div class="task-content">
+            <span class="task-name">Make a doctor's appointment</span>
+            <span class="priority medium">Medium</span>
+          </div>
+          <div class="task-meta">
+            <span class="date">April 20, 2024</span>
+            <span class="task-actions"></span> <!-- Пустий елемент для вирівнювання -->
+          </div>
+        </li>
+      </ul>
+
+      <div class="popup-window hidden">
+        <div class="popup-form">
+          <div class="popup-header">
+            <h2>Додати завдання</h2>
+            <button class="close-btn">&times;</button>
+          </div>
+
+          <div class="add-task">
+            <label>Назва завдання</label>
+            <input type="text" class="popup-task-name" placeholder="Наприклад: Завдання 1">
+          </div>
+
+          <div class="date-task">
+            <label>Дата виконання</label>
+            <div class="date-wrapper">
+              <input type="date" class="popup-date" id="popup-date" />
+              <span class="fake-placeholder">Оберіть дату</span>
+            </div>
+          </div>
+
+          <div class="prioritys">
+            <label>Пріоритет</label>
+            <div class="priority-options">
+              <label><input type="radio" name="priority" value="high">Високий</label>
+              <label><input type="radio" name="priority" value="medium" checked>Середній</label>
+              <label><input type="radio" name="priority" value="low">Низький</label>
+            </div>
+          </div>
+
+          <div class="popup-buttons">
+            <button class="save-btn">Додати завдання</button>
+            <button class="cancel-btn">Скасувати</button>
+          </div>
+
+
+        </div>
+      </div>
+      <script>
+        document.addEventListener("DOMContentLoaded", () =>{
+          const popup = document.querySelector(".popup-window");
+          const addBtn = document.querySelector(".add-btn");
+          const cancelBth = document.querySelector(".cancel-btn");
+          const closeBtn = document.querySelector(".close-btn");
+
+          addBtn.addEventListener("click", () =>{
+            popup.classList.remove("hidden");
+          });
+
+          cancelBth.addEventListener('click', () => {
+            popup.classList.add('hidden');
+          });
+
+          closeBtn.addEventListener('click', () => {
+            popup.classList.add('hidden');
+          });
+
+          popup.addEventListener('click', (e) => {
+            if (e.target === popup) {
+              popup.classList.add('hidden');
+            }
+          });
+          const dateInput = document.getElementById('popup-date');
+          const fakePlaceholder = document.querySelector('.fake-placeholder');
+
+          function togglePlaceholder() {
+            if (dateInput.value) {
+              fakePlaceholder.style.opacity = '0';
+            } else {
+              fakePlaceholder.style.opacity = '1';
+            }
+          }
+          dateInput.addEventListener('input', togglePlaceholder);
+          togglePlaceholder();
+        });
+      </script>
+    </div>
+  </div>
+</body>
+</html>

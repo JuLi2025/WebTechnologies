@@ -1,0 +1,361 @@
+body{
+  font-family: sans-serif;
+  background: lightgray;
+  margin: 0;
+  padding: 0;
+}
+
+.wrapper{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container{
+  max-width: 600px;
+  width: 100%;
+  padding: 20px;
+}
+
+h1{
+  text-align: center;
+}
+
+.input-section{
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.input-task{
+  flex: 1;
+  border-radius: 6px;
+  border: 1px solid gray;
+  padding: 10px;
+  font-size: 16px;
+}
+
+.add-btn{
+  background: white;
+  border-radius: 6px;
+  border: 1px solid gray;
+  padding: 10px 15px;
+  font-size: 16px;
+  margin-left: 5px;
+}
+
+.filter-section{
+  display: flex;
+  column-gap: 70px;
+  row-gap: 10px; 
+  width: 100%;
+  max-width: 600px;
+  margin: 20px auto 0;
+  flex-wrap: wrap;
+}
+
+.sort{
+  flex: 1;
+  display: flex;
+  align-items: center;
+  background-color: white;
+  border: 1px solid gray;
+  border-radius: 6px;
+  padding: 6px 10px;
+  min-width: 145px;
+  box-sizing: border-box;
+}
+
+
+.sort span{
+  margin-right: 8px;
+  white-space: nowrap;
+}
+
+select {
+  flex: 1;
+  border: none;
+  padding: 3px 0px 3px 0px;
+  font-size: 16px;
+  outline: none;
+  color: gray;
+  min-width: 0;
+  background-color: transparent;
+}
+
+.task-list{
+  background-color: white;
+  border-radius: 6px;
+  list-style: none;
+  padding: 0;
+}
+
+.task {
+  display: flex;
+  align-items: flex-start; 
+  gap: 10px;
+  border-bottom: 1px solid lightgray;
+  padding: 10px 15px; 
+}
+
+.task-content {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.task-name {
+  margin-bottom: 0; 
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.priority {
+  padding: 2px 8px;
+  border-radius: 6px;
+  font-size: 12px;
+  color: white;
+  width: fit-content;
+}
+
+.date-and-actions {
+  display: flex;
+  align-items: center;
+  gap: 15px; 
+  margin-left: auto; 
+}
+
+.date {
+  color: #666;
+  font-size: 14px; 
+  white-space: nowrap;
+  text-align: right; 
+}
+
+.task-meta {
+  display: flex;
+  align-items: center;
+  width: 150px; /* Фіксована ширина для контейнера */
+  justify-content: flex-end;
+}
+
+.date {
+  width: 110px; /* Фіксована ширина для дати */
+  color: #666;
+  font-size: 16px;
+  white-space: nowrap;
+  text-align: right;
+  padding-right: 10px;
+  flex-shrink: 0;
+}
+
+.task-actions {
+  width: 20px; /* Фіксована ширина для іконки */
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex-shrink: 0;
+  visibility: hidden; /* По замовчуванню приховано */
+}
+
+.task-actions.visible {
+  visibility: visible; /* Показуємо тільки коли потрібно */
+}
+
+.priority.low{
+  background: #bdc3c7;
+}
+
+.priority.medium{
+  background: orange;
+}
+
+.priority.high{
+  background: darkorange;
+}
+
+.checkbox-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+}
+
+.checkbox-circle {
+  width: 20px;
+  height: 20px;
+  border: 2px solid gray;
+  background: white;
+  border-radius: 50%;
+  margin-bottom: 5px;
+  position: relative;
+  cursor: pointer;
+}
+
+input[type="checkbox"] {
+  display: none;
+}
+
+input[type="checkbox"]:checked + .checkbox-circle::before {
+  content: "✓";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 14px;
+  color: #000;
+}
+
+.popup-window{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.popup-form{
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  width: 300px;
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  font-family: sans-serif;
+  z-index: 1000;
+}
+
+.popup-header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.popup-header h2{
+  margin: 0;
+  font-size: 20px;
+}
+
+.close-btn{
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.popup-form label{
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+.add-task{
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.date-task{
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.prioritys{
+  display: flex;
+  flex-direction:column;
+  gap: 7px;
+}
+
+.popup-form input[type="text"],
+.popup-form input[type="date"]{
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+}
+.priority-options{
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+.priority-options label{
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.popup-buttons {
+  display: flex;
+  justify-content: center;  
+  gap: 10px;                
+  margin-top: 10px;
+}
+
+.popup-buttons button {
+  flex: 1;                  
+  padding: 10px;           
+  font-size: 14px;
+}
+
+.save-btn{
+  background: blue;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 7px;
+  border: none;
+  cursor: pointer;
+}
+
+.cancel-btn{
+  background-color: white;
+  color: #333;
+  padding: 10px 20px;
+  border-radius: 7px;
+  border: 1px solid #666;
+  cursor: pointer;
+}
+
+.hidden{
+  display: none;
+}
+
+.date-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.fake-placeholder {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #555;
+  pointer-events: none;
+  user-select: none;
+  font-size: 14px;
+  font-weight: 500;
+  background: white; 
+  padding: 0 4px; 
+  border-radius: 4px;
+  transition: opacity 0.2s ease;
+  z-index: 10;
+}
+
+.popup-date {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+  box-sizing: border-box;
+}
