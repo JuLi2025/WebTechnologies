@@ -12,6 +12,12 @@
   <div class="wrapper">
     <div class="container">
       <h1>To-Do List</h1>
+      <div style="margin-bottom: 20px;">
+        <a href="report.html" style="text-decoration: none; font-size: 16px; color: blue;">
+          📊 Переглянути звіт
+        </a>
+      </div>
+      
       <div class="input-section">
         <input type="text" placeholder="Add a new task" class="input-task">
         <button class="add-btn">Add</button>
@@ -48,7 +54,9 @@
           </div>
           <div class="task-meta">
             <span class="date">May 1, 2024</span>
-            <span class="task-actions"></span> 
+            <span class="task-actions visible">
+              <i class="fa-solid fa-pen-to-square"></i>
+            </span> 
           </div>
         </li>
       
@@ -97,7 +105,9 @@
           </div>
           <div class="task-meta">
             <span class="date">April 20, 2024</span>
-            <span class="task-actions"></span> 
+            <span class="task-actions visible">
+              <i class="fa-solid fa-pen-to-square"></i>
+            </span> 
           </div>
         </li>
       </ul>
@@ -135,48 +145,9 @@
             <button class="save-btn">Додати завдання</button>
             <button class="cancel-btn">Скасувати</button>
           </div>
-
-
         </div>
       </div>
-      <script>
-        document.addEventListener("DOMContentLoaded", () =>{
-          const popup = document.querySelector(".popup-window");
-          const addBtn = document.querySelector(".add-btn");
-          const cancelBth = document.querySelector(".cancel-btn");
-          const closeBtn = document.querySelector(".close-btn");
-
-          addBtn.addEventListener("click", () =>{
-            popup.classList.remove("hidden");
-          });
-
-          cancelBth.addEventListener('click', () => {
-            popup.classList.add('hidden');
-          });
-
-          closeBtn.addEventListener('click', () => {
-            popup.classList.add('hidden');
-          });
-
-          popup.addEventListener('click', (e) => {
-            if (e.target === popup) {
-              popup.classList.add('hidden');
-            }
-          });
-          const dateInput = document.getElementById('popup-date');
-          const fakePlaceholder = document.querySelector('.fake-placeholder');
-
-          function togglePlaceholder() {
-            if (dateInput.value) {
-              fakePlaceholder.style.opacity = '0';
-            } else {
-              fakePlaceholder.style.opacity = '1';
-            }
-          }
-          dateInput.addEventListener('input', togglePlaceholder);
-          togglePlaceholder();
-        });
-      </script>
+      <script src="script.js"></script>
     </div>
   </div>
 </body>
